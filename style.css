@@ -1,0 +1,131 @@
+body{
+    background-color: #f5ecd7;
+    margin: 0;
+}
+.card {
+    width: 420px;
+    height: 340px;
+    margin: 1em;
+    perspective: 1500px;
+}
+
+.more {
+    display: none;
+}
+
+.flip{
+    transition: transform 0.8s;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style:preserve-3d;
+    
+}
+
+.more:checked ~ .flip {
+    transform: rotateY(180deg);
+}
+
+.front, .back{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.back{
+    transform: rotateY(180deg);
+    background-color: white;
+    padding: 1em;
+    box-sizing: border-box;
+    overflow-y: auto;
+    font-size: 0.85em;
+}
+
+.front {
+    background-color: white;
+    overflow: hidden;
+}
+
+.front img{
+    display: block;
+    width: 100%;
+    height: 70%;
+    object-fit: cover;
+
+}
+
+.front h1 {
+    font-size: 1.4em;
+    margin: 0.5em 1em;
+    color: var(--burgundy);
+
+}
+
+.stats{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    text-align: center;
+    font-weight: bold;
+    color: var(--burgundy);
+}
+
+:root {
+    --burgundy: #800020;
+}
+
+.back label {
+    display: inline-block;
+    margin-left: 1em;
+    padding: 0.4em 1.2em;
+    border: 2px solid var(--burgundy);
+    border-radius: 4px;
+    color: var(--burgundy);
+    cursor: pointer;
+}
+
+.back label:hover {
+    background-color: var(--burgundy);
+    color: white;
+}
+
+.front label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(128, 0, 32, 0.65);
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.card:hover .front label{
+    opacity: 1;
+}
+
+.wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.banner {
+    background-color: #800020;
+    color:#f5ecd7;
+    font-family: 'brush script mt', cursive;
+    font-size: 2em;
+    text-align: center;
+    padding: 0.2em;
+}
+
